@@ -13,9 +13,56 @@
     height: 100vw;
   }
   
+  /*---------------*/
+  /*navbar contents*/
+  /*---------------*/
   #navbar {
     position: fixed;
     top: 0;
+    background-color: #9c9c9c;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+  }
+
+  #navbar a {
+    text-decoration: none;
+    color: black;
+  }
+
+  /*v Can make a section for page links */
+  #navbar h2 {
+    margin: auto;
+  }
+
+  #navbar a:hover {
+    color: rgb(94, 94, 94);
+    transition: 0.4s;
+  }
+
+  #navbar img {
+    height: 2rem;
+  }
+
+  #navbar h1{
+    padding-left: 2rem;
+    font-size: 2rem;
+  }
+
+  #navbar #link-icons {
+    display: grid;
+    grid-template-columns: repeat(4, 3rem);
+    grid-auto-flow: column;
+    padding-right: 2rem;
+  }
+
+.profile-link {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    filter: brightness(0%);
   }
   
   #banner-margin {
