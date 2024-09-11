@@ -1,0 +1,24 @@
+@media (max-width: 400px) {
+    section {
+      /*Cut below, change to collapse columns */
+      font-size: 8px;
+    }
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  #welcome-section {
+    height: 100vw;
+  }
+  
+  #navbar {
+    position: fixed;
+    top: 0;
+  }
+  
+  #banner-margin {
+    /*make relative*/
+    margin-bottom: 250px;
+  }
