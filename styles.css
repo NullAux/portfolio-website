@@ -1,17 +1,49 @@
-@media (max-width: 400px) {
-    section {
-      /*Cut below, change to collapse columns */
-      font-size: 8px;
-    }
-  }
+/*Variables*/
+:root {
+  /*Global*/
+  --title-font: "Courier New", "Monospace";
+  --maintext-font: "Verdana", "Arial";
+  --background-color: rgb(154, 255, 154);
+
+  /*Banner*/
+  --banner-bg: #027247;
+  --banner-a-hover: rgb(94, 94, 94);
+  --banner-text-color: white;
+
+  /*Footer*/
+  --footer-bg: grey;
+}
   
+/*--------------*/
+/*Global effects*/
+/*--------------*/
   * {
     box-sizing: border-box;
+    overflow-x: hidden;
   }
-  
-  #welcome-section {
-    height: 100vw;
+
+  html {
+    position: relative;
+    min-height: 100%;
   }
+
+/*-------------------*/
+/*Global page styling*/
+/*-------------------*/
+
+h1, h2, h3 {
+  font-family: var(--title-font);
+}
+
+p, a, small {
+  font-family: var(--maintext-font);
+}
+
+body {
+  background-color: var(--background-color);
+  padding: 0 10vw;
+  margin: 0;
+}
   
   /*---------------*/
   /*navbar contents*/
@@ -19,17 +51,18 @@
   #navbar {
     position: fixed;
     top: 0;
-    background-color: #9c9c9c;
-    width:100%;
+    background-color: var(--banner-bg);
+    padding: 0;
+    width: 101%;
     display: flex;
     justify-content: space-between;
-    margin: 0;
-    padding: 0;
+    margin: 0 -11vw;
+    font-family: var(--title-font);
   }
 
   #navbar a {
     text-decoration: none;
-    color: black;
+    color: var(--banner-text-color);
   }
 
   /*v Can make a section for page links */
@@ -38,7 +71,7 @@
   }
 
   #navbar a:hover {
-    color: rgb(94, 94, 94);
+    color: var(--banner-a-hover);
     transition: 0.4s;
   }
 
@@ -49,6 +82,7 @@
   #navbar h1{
     padding-left: 2rem;
     font-size: 2rem;
+    color: var(--banner-text-color);
   }
 
   #navbar #link-icons {
@@ -63,9 +97,87 @@
     display: flex;
     flex-direction: column;
     filter: brightness(0%);
+    /*^ Remove if using white icons*/
   }
   
   #banner-margin {
     /*make relative*/
-    margin-bottom: 250px;
+    margin-bottom: 7rem;
   }
+/*Navbar / banner end */
+
+  /*---------------*/
+  /*footer contents*/
+  /*---------------*/
+  footer {
+    /*May need to change position to not follow viewport*/
+    /* position: absolute; */
+    position: absolute;
+    bottom: 0;
+    padding: 0;
+    margin: 0 -10vw;
+    width: 100vw;
+    height: 5rem;
+    background-color: var(--footer-bg);
+    overflow: hidden;
+  }
+
+  footer small {
+    display: inline-block;
+    margin: 2rem 10vw;
+    color: var(--banner-text-color)
+  }
+
+/*----------------*/
+/*Individual pages*/
+/*----------------*/
+
+/*---------*/
+/*Home Page*/
+/*---------*/
+
+/*Showreel*/
+/*Goto showreel:after to control timing*/
+@keyframes showreelAnimation {
+  0% {
+    content: url(./assets/temp/Showreel-placeholder-one.png);
+  }
+
+  50% {
+    content: url(./assets/temp/Showreel-placeholder-two.png);
+  }
+
+  100% {
+    content: url(./assets/temp/Showreel-placeholder-three.png);
+  }
+}
+
+#showreel {
+  width: 125%;
+  height: 500px;
+  display: flex;
+  overflow: hidden;
+  background-color: black;
+  margin: 0 -10vw;
+}
+
+#showreel::after {
+  animation: 9s ease-in-out infinite showreelAnimation;
+  height: auto;
+  margin: auto;
+  content: "";
+}
+
+
+/*About me section*/
+#welcome-section {
+}
+
+#welcome-section img {
+  height: 10rem;
+  position: relative;
+  top: 0;
+  left: 75%;
+  /*Currently gets pushed down by text, fix or remove*/
+}
+
