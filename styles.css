@@ -365,15 +365,40 @@ body {
 }
 
 /*desc*/
-#project-overview ul {
+#project-overview ul, .highlight ul {
   list-style-position: inside;
 }
 
-#project-overview ul li:not(:last-child) {
+#project-overview ul li:not(:last-child), .highlight ul li:not(:last-child) {
   margin-bottom: 0.3rem;
 }
 
-/*Small gallery*/
+/*Highlights*/
+.highlight {
+  display: grid;
+  grid-template-columns: 50% auto;
+  justify-content: start;
+  column-gap: 5%;
+}
+
+.highlight img {
+  width: 100%;
+  height: auto;
+}
+
+.highlight .code-wrapper {
+  /*v Adjust if chaning column size*/
+  /*TO DO style up!*/
+  width: 50vw;
+  background-color: black;
+}
+
+.highlight code {
+  color: var(--maintext-color);
+  font-size: 1rem;
+}
+
+/*Project Gallery*/
 #project-gallery {
   display: flex;
   flex-wrap: wrap;
