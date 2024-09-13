@@ -3,15 +3,20 @@
   /*Global*/
   --title-font: "Courier New", "Monospace";
   --maintext-font: "Verdana", "Arial";
-  --background-color: rgb(154, 255, 154);
+  --background-color: rgb(68, 68, 68);
+  --maintext-color: white;
 
   /*Banner*/
   --banner-bg: #027247;
-  --banner-a-hover: rgb(94, 94, 94);
+  --banner-a-hover: rgb(187, 187, 187);
   --banner-text-color: white;
 
   /*Footer*/
   --footer-bg: grey;
+
+  /*Scrollbar*/
+  scrollbar-width: thin;
+  scrollbar-color: rgb(199, 199, 199) rgb(124, 124, 124);
 }
   
 /*--------------*/
@@ -33,10 +38,16 @@
 
 h1, h2, h3 {
   font-family: var(--title-font);
+  font-size: 2rem;
 }
 
-p, a, small {
+p, small {
   font-family: var(--maintext-font);
+  font-size: 1.5rem;
+}
+
+h1,h2,h3,p,a,small {
+  color: var(--maintext-color);
 }
 
 body {
@@ -48,6 +59,12 @@ body {
 .buffer-margin {
   margin-bottom: 7rem;
 }
+
+.line-break {
+  border-bottom: 2px solid black;
+  margin-bottom: 2rem;
+  padding: 0;
+}
   
   /*---------------*/
   /*navbar contents*/
@@ -55,7 +72,7 @@ body {
   #navbar {
     position: fixed;
     top: 0;
-    z-index: 1;
+    z-index: 2;
     background-color: var(--banner-bg);
     padding: 0;
     width: 101%;
@@ -73,6 +90,7 @@ body {
   /*v Can make a section for page links */
   #navbar h2 {
     margin: auto;
+    font-size: 1.5rem;
   }
 
   #navbar a:hover {
@@ -86,6 +104,7 @@ body {
 
   #navbar h1{
     padding-left: 2rem;
+    padding-right: 2rem;
     font-size: 2rem;
     color: var(--banner-text-color);
   }
@@ -95,6 +114,7 @@ body {
     grid-template-columns: repeat(4, 3rem);
     grid-auto-flow: column;
     padding-right: 2rem;
+    padding-left: 2rem;
   }
 
 .profile-link {
@@ -103,6 +123,13 @@ body {
     flex-direction: column;
     filter: brightness(0%);
     /*^ Remove if using white icons*/
+  }
+
+  #navbar #page-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4vw;
   }
   
 /*Navbar / banner end */
@@ -228,7 +255,7 @@ body {
 
 /*About me section*/
 #welcome-section {
-
+  margin-bottom: -2rem;
 }
 
 #welcome-section #welcome-section-grid {
@@ -242,7 +269,14 @@ body {
   height: 10rem;
 }
 
-#welcome-section button {
+
+#resume-and-contact-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10%;
+}
+
+#resume-and-contact-grid button {
   margin-top: 5%;
   margin-left: auto;
   width: 40%;
@@ -251,12 +285,30 @@ body {
   font-weight: bold;
   font-size: large;
   background-color: var(--banner-bg);
-  color: var(--banner-text-color)
+  color: var(--banner-text-color);
+  border: none;
+  border-radius: 10px;
+  grid-column: 1 / -1;
 }
 
-#welcome-section button:hover {
+#resume-and-contact-grid button {
   cursor: pointer;
 }
+
+#resume-and-contact-grid img {
+  aspect-ratio: 1 / 1.414;
+  max-width: 30vw;
+  height: auto;
+  max-height: 50vh;
+  min-width: none;
+  min-height: none;
+}
+
+#resume-and-contact-grid #resume-and-button {
+  text-align: center;
+}
+
+
 
 /*Gallery*/
 #gallery {
@@ -266,8 +318,17 @@ body {
   align-items: center;
   align-content: center;
   gap: 1rem;
+  padding: 10% 0 10% 0;
+  overflow: hidden;
 }
 
 #gallery img {
   max-width: 40%;
+}
+
+#gallery img:hover {
+  cursor: pointer; 
+  transform: scale(1.2);
+  transition: 0.5s;
+  z-index: 1;
 }
