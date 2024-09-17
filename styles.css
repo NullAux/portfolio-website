@@ -17,6 +17,11 @@
   /*Scrollbar*/
   scrollbar-width: thin;
   scrollbar-color: rgb(199, 199, 199) rgb(124, 124, 124);
+
+  /*Highlights code snippets*/
+  --highlight-code-bg: rgb(33, 33, 33);
+  --highlight-code-border: rgb(26, 26, 26);
+
 }
   
 /*--------------*/
@@ -100,15 +105,16 @@ body {
     transition: 0.4s;
   }
 
-  #navbar img {
-    height: 2rem;
-  }
-
   #navbar a h1{
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     font-size: 2rem;
     color: var(--banner-text-color);
+  }
+
+
+  #navbar img {
+    height: 2rem;
   }
 
   #navbar #link-icons {
@@ -312,6 +318,16 @@ body {
   text-align: center;
 }
 
+#get-in-touch-link-icons img {
+  height: 3rem;
+  aspect-ratio: auto;
+}
+#get-in-touch-link-icons {
+  display: grid;
+  grid-template-columns: repeat(4, 4rem);
+  grid-auto-flow: column;
+}
+
 /*Gallery*/
 #gallery {
   display: flex;
@@ -376,24 +392,28 @@ body {
 /*Highlights*/
 .highlight {
   display: grid;
-  grid-template-columns: 50% auto;
+  grid-template-columns: 50% 45%;
   justify-content: start;
   column-gap: 5%;
 }
 
 .highlight img {
+  /*Can set max height/width*/
   width: 100%;
   height: auto;
 }
 
 .highlight .code-wrapper {
-  /*v Adjust if chaning column size*/
-  /*TO DO style up!*/
-  width: 50vw;
-  background-color: black;
+  width: 100%;
+  height: 100%;
+  background-color: var(--highlight-code-bg);
+  padding: 2rem 2rem;
+  border-radius: 10px;
+  border: 10px solid var(--highlight-code-border);
 }
 
-.highlight code {
+.highlight .code-wrapper code {
+  height: auto;
   color: var(--maintext-color);
   font-size: 1rem;
 }
